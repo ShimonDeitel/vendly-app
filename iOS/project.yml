@@ -1,0 +1,75 @@
+name: Vendly
+options:
+  bundleIdPrefix: com.shimondeitel.vendspend
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+settings:
+  base:
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "5.0"
+    DEVELOPMENT_TEAM: "W7Q885Q59C"
+    CODE_SIGN_STYLE: Automatic
+    IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+    TARGETED_DEVICE_FAMILY: "1"
+    ENABLE_USER_SCRIPT_SANDBOXING: "YES"
+targets:
+  Vendly:
+    type: application
+    platform: iOS
+    sources:
+      - path: Vendly
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.vendspend
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_FILE: Vendly/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_PREVIEWS: "YES"
+        GENERATE_INFOPLIST_FILE: "NO"
+  VendlyTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: VendlyTests
+      - path: Vendly.storekit
+    dependencies:
+      - target: Vendly
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.vendspend.tests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TARGETED_DEVICE_FAMILY: "1"
+  VendlyUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: VendlyUITests
+    dependencies:
+      - target: Vendly
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.shimondeitel.vendspend.uitests
+        GENERATE_INFOPLIST_FILE: "YES"
+        TARGETED_DEVICE_FAMILY: "1"
+schemes:
+  Vendly:
+    build:
+      targets:
+        Vendly: all
+        VendlyTests: [test]
+        VendlyUITests: [test]
+    run:
+      config: Debug
+      storeKitConfiguration: Vendly.storekit
+    test:
+      config: Debug
+      storeKitConfiguration: Vendly.storekit
+      targets:
+        - VendlyTests
+        - VendlyUITests
+    archive:
+      config: Release

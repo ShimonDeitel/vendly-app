@@ -1,0 +1,29 @@
+{
+  "identifier": "0",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "1.99",
+      "familyShareable": false,
+      "internalID": "1",
+      "localizations": [
+        {
+          "description": "Weekly spend trend graph and per-location breakdown",
+          "displayName": "Vendly Pro",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "com.shimondeitel.vendspend.pro",
+      "referenceName": "Vendly Pro",
+      "type": "NonConsumable"
+    }
+  ],
+  "settings": {
+    "_locale": "en_US"
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}
